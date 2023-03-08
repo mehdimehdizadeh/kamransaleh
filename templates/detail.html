@@ -1,0 +1,33 @@
+
+         
+         {% extends "layout.html" %}
+         {% load static %}
+         {% block body %}
+         {% include "header.html" %}
+
+         <section class="section mt-5 mb-5">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-12 align-items-center text-center">
+                  <div class="align-items-center text-center">
+                    <img alt="Web Studio" class="img-fluid responsive align-items-center" src="{{post.image.url}}" />
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 ml-auto d-flex align-items-center mt-4 mt-md-0">
+                  <div>
+                    <h1 class="align-items-center text-center">{{post.title}}</h1>
+                    <p>{{post.content|safe}}</p>
+                    {% if request.user.is_authenticated %}
+                    <p><a class="btn btn-danger" href="{% url 'subscribe' post.slug %}">Abonələrə göndər</a></p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+
+
+         {% include "footer.html" %}
+     
+         {% endblock body %}

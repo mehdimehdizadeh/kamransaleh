@@ -1,0 +1,32 @@
+ 
+         {% extends "layout.html" %}
+         {% load static %}
+         {% block body %}
+         {% include "header.html" %}
+
+ 
+         <section class="why_section layout_padding">
+            <div class="container">
+            
+               <div class="row">
+                  <div class="col-lg-8 offset-lg-2">
+                     <div class="full">
+                        <form action="{% url 'contact' %}" method="post">
+                           {% csrf_token %}
+                           <fieldset class="text-center">
+                              <input type="text" placeholder="Ad və soyad" name="name" required />
+                              <input type="email" placeholder="Mail addressi" name="email" required />
+                              <input type="text" placeholder="Mövzu" name="subject" required />
+                              <input type="text" placeholder="Əlaqə nömrəsi" name="phone" required />
+                              <textarea placeholder="Mesajınız..." required name="text"></textarea>
+                              <button class="btn btn-dark justify-content-center center text-center"> Göndər </button>
+                           </fieldset>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+      {% include "footer.html" %}
+     
+      {% endblock body %}

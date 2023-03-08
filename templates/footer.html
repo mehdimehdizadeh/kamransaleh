@@ -1,0 +1,70 @@
+{% load static %}
+<footer>
+    <div class="container">
+       <div class="row">
+          <div class="col-md-4">
+              <div class="full">
+                 <div class="logo_footer">
+                   <a href="#"><img width="210" src="{% static 'images/logo.png' %}" alt="#" /></a>
+                 </div>
+                 <div class="information_f">
+                   <p><strong>TELEPHONE:</strong> +91 987 654 3210</p>
+                   <p><strong>EMAIL:</strong> cuska@gmail.com</p>
+                   <i class="bi bi-instagram"></i>
+                   <i class="bi bi-facebook"></i>
+                   <i class="bi bi-linkedin"></i>
+                   <i class="bi bi-whatsapp"></i>
+                 </div>
+              </div>
+          </div>
+          <div class="col-md-8">
+             <div class="row">
+             <div class="col-md-7">
+                <div class="row">
+                   <div class="col-md-6">
+                <div class="widget_menu">
+                   <h3>Menu</h3>
+                   <ul>
+                      <li><a href="{% url 'index' %}">Ana səhifə</a></li>
+                      <li><a href="{% url 'about' %}">Haqqımda</a></li>
+                      <li><a href="{% url 'potcast' %}">Podcastlar</a></li>
+                      <li><a href="{% url 'contact' %}">Əlaqə</a></li>
+                   </ul>
+                </div>
+             </div>
+             <div class="col-md-6">
+                <div class="widget_menu">
+                   <h3>Bloglar</h3>
+                   <ul>
+                     {% for category in categories  %}
+                     <li><a href="{% url 'category' category.slug %}">{{category.title}}</a></li>
+                     {% endfor %}
+                </div>
+             </div>
+                </div>
+             </div>     
+             <div class="col-md-5">
+                <div class="widget_menu">
+                   <h3>Abonə ol</h3>
+                   <div class="information_f">
+                     <p>Postlardan xəbər tutmaq üçün abone olun!</p>
+                   </div>
+                   <div class="form_sub">
+                      <form acthin="{% url 'index' %}" method="post">
+                        {% csrf_token %}
+                         <fieldset>
+                            <div class="field">
+                               <input type="email" placeholder="Mail" name="subscribe" />
+                               <button class="btn btn-dark" style="height:48px;">Subscribe</button>
+                            </div>
+                         </fieldset>
+                      </form>
+                   </div>
+                </div>
+             </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </footer>
+ <!-- footer end -->
